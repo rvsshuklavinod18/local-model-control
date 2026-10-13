@@ -24,7 +24,7 @@ async function reservePort() {
 
 test('serves local status and keeps host uninstall unavailable in a container', async (context) => {
   const port = await reservePort()
-  const dataDirectory = await mkdtemp(join(tmpdir(), 'local-model-control-test-'))
+  const dataDirectory = await mkdtemp(join(tmpdir(), 'modelkiln-test-'))
   const child = spawn(process.execPath, [serverPath], {
     env: {
       ...process.env,

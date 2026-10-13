@@ -1,4 +1,4 @@
-# Local Model Control
+# ModelKiln
 
 A local-first dashboard for Ollama model status, GPU telemetry, and inference activity routed through its proxy. It does not hardcode or upload a machine name, username, hardware inventory, or model prompts.
 
@@ -9,14 +9,14 @@ Requirements: Git, Docker Desktop (Windows/macOS) or Docker Engine with Compose 
 Clone the repository, enter the folder, and start the dashboard with one command:
 
 ```sh
-git clone https://github.com/rvsshuklavinod18/local-model-control.git
-cd local-model-control
+git clone https://github.com/rvsshuklavinod18/modelkiln.git
+cd modelkiln
 docker compose up --build -d
 ```
 
 Open `http://127.0.0.1:3210`. The Compose port is bound to loopback, and activity metadata persists in a named Docker volume. Stop the dashboard with `docker compose down`; remove its activity volume too with `docker compose down -v`.
 
-The published Linux AMD64 image is `ghcr.io/rvsshuklavinod18/local-model-control:main`. To use it instead of building from the clone, set `DASHBOARD_IMAGE=ghcr.io/rvsshuklavinod18/local-model-control:main`, run `docker compose pull`, then `docker compose up -d --no-build`.
+The published Linux AMD64 image is `ghcr.io/rvsshuklavinod18/modelkiln:main`. To use it instead of building from the clone, set `DASHBOARD_IMAGE=ghcr.io/rvsshuklavinod18/modelkiln:main`, run `docker compose pull`, then `docker compose up -d --no-build`.
 
 ### Ollama Connection Notes
 

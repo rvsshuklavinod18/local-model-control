@@ -174,9 +174,9 @@ function App() {
   return (
     <div className="app-shell">
       <header className="topbar">
-        <a className="brand" href="#top" aria-label="Local Model Control home">
+        <a className="brand" href="#top" aria-label="ModelKiln home">
           <span className="brand-mark"><Cpu size={18} strokeWidth={2.2} /></span>
-          <span>Local Model <b>Control</b></span>
+          <span>Model<b>Kiln</b></span>
         </a>
         <div className="topbar-right">
           <span className={`connection ${status?.connected ? 'is-online' : 'is-offline'}`}><span className="connection-dot" />{status?.connected ? 'OLLAMA ONLINE' : 'OLLAMA OFFLINE'}</span>
@@ -188,8 +188,8 @@ function App() {
         <section className="page-heading">
           <div>
             <p className="eyebrow"><span className="eyebrow-line" /> LOCAL INFERENCE / OPERATIONS</p>
-            <h1>Model control room</h1>
-            <p className="heading-copy">Runtime health, GPU headroom, and activity routed through this dashboard.</p>
+            <h1>ModelKiln</h1>
+            <p className="heading-copy">Local inference operations, resource headroom, and request activity.</p>
           </div>
           <button className="button button-stop-all" disabled={!status?.running.length || Boolean(busy)} onClick={() => void runAction('stop-all', '/api/stop-all', jsonOptions({}), 'All loaded models stopped.')}>
             {busy === 'stop-all' ? <LoaderCircle className="spin" size={16} /> : <Square size={15} fill="currentColor" />} Stop all

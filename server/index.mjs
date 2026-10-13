@@ -427,5 +427,5 @@ const server = createServer(async (request, response) => {
 })
 
 server.listen(port, host, () => {
-  console.log(`Local Model Control API listening at http://${host}:${port}`)
+  console.log(`ModelKiln API listening at http://${host}:${port}`)
 })

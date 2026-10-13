@@ -1,6 +1,6 @@
 services:
   dashboard:
-    image: ${DASHBOARD_IMAGE:-local-model-control:latest}
+    image: ${DASHBOARD_IMAGE:-modelkiln:latest}
     build: .
     restart: unless-stopped
     init: true

@@ -46,10 +46,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build image
-        run: docker build --tag local-model-control:ci .
+        run: docker build --tag modelkiln:ci .
 
       - name: Run container
-        run: docker run --detach --name local-model-control-ci --publish 127.0.0.1:3210:3210 local-model-control:ci
+        run: docker run --detach --name modelkiln-ci --publish 127.0.0.1:3210:3210 modelkiln:ci
 
       - name: Smoke-test health API and dashboard
         run: |
@@ -60,13 +60,13 @@ jobs:
             sleep 1
           done
           curl --fail --silent http://127.0.0.1:3210/api/health | grep -q '"ok":true'
-          curl --fail --silent http://127.0.0.1:3210/ | grep -q 'Local Model Control'
+          curl --fail --silent http://127.0.0.1:3210/ | grep -q 'ModelKiln'
 
       - name: Collect container logs and clean up
         if: always()
         run: |
-          docker logs local-model-control-ci || true
-          docker rm --force local-model-control-ci || true
+          docker logs modelkiln-ci || true
+          docker rm --force modelkiln-ci || true
 
   publish:
     name: Publish image to GHCR
