@@ -1,0 +1,23 @@
+services:
+  dashboard:
+    image: ${DASHBOARD_IMAGE:-local-model-control:latest}
+    build: .
+    restart: unless-stopped
+    init: true
+    ports:
+      - "127.0.0.1:${DASHBOARD_PUBLIC_PORT:-3210}:3210"
+    environment:
+      DASHBOARD_DOCKER: "true"
+      DASHBOARD_HOST: 0.0.0.0
+      DASHBOARD_PORT: 3210
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      OLLAMA_GPU_OVERHEAD: ${OLLAMA_GPU_OVERHEAD:-}
+      OLLAMA_KEEP_ALIVE: ${OLLAMA_KEEP_ALIVE:-}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - dashboard-data:/app/data
+    mem_limit: 512m
+
+volumes:
+  dashboard-data:

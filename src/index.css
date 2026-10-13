@@ -1,0 +1,32 @@
+:root {
+  font-family: 'Bahnschrift', 'Segoe UI Variable', 'Segoe UI', sans-serif;
+  color: #1d2825;
+  background: #f2f4ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  --ink: #1d2825;
+  --muted: #68746e;
+  --line: #dce2dc;
+  --paper: #f2f4ef;
+  --white: #fcfdf9;
+  --forest: #1d302c;
+  --mint: #c9f27d;
+  --teal: #237b73;
+  --blue: #527c9a;
+  --amber: #c68538;
+  --red: #bd574b;
+  --mono: 'Cascadia Code', Consolas, monospace;
+  font-size: 14px;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; min-height: 100%; }
+body { min-width: 320px; min-height: 100vh; margin: 0; background: radial-gradient(ellipse at 84% 0%, rgba(196, 219, 190, 0.22), transparent 32rem), var(--paper); }
+button, input { font: inherit; }
+button { color: inherit; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+::selection { color: var(--forest); background: var(--mint); }
+#root { min-height: 100vh; }
